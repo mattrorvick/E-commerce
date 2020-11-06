@@ -1,6 +1,7 @@
 package com.tts.ecommercepage.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.tts.ecommercepage.model.Product;
 
@@ -13,7 +14,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     
 
     List<Product> findAll();
-    Product findById(long id);
+    Optional<Product> findById(long id);
     List<Product> findByBrand(String brand);
     List<Product> findByCategory(String category);
     List<Product> findByBrandAndCategory(String brand, String category);

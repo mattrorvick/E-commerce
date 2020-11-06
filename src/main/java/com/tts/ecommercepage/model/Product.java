@@ -16,7 +16,7 @@ public class Product {
 
     private int quantity;
 
-    private double price;
+    private float price;
 
     private String description;
 
@@ -32,6 +32,24 @@ public class Product {
     //JPA needs empty constructor
     public Product() {
     }
+
+    public Product(int quantity, float price, String description, String name, String brand, String category, String image) {
+        this.quantity = quantity;
+        this.price = price;
+        this.description = description;
+        this.name = name;
+        this.brand = brand;
+        this.category = category;
+        this.image = image;
+    }
+
+    // public Product(int quantity, float price, String name, String image) {
+    //     this.quantity = quantity;
+    //     this.price = price;
+    //     this.name = name;
+    //     this.image = image;
+    // }
+        
 
     public Long getId() {
         return id;
@@ -55,7 +73,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -105,10 +123,9 @@ public class Product {
                 + ", image=" + image + ", name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
     }
 
-    
+
 
     
-
     
 
 }

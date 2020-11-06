@@ -1,5 +1,6 @@
 package com.tts.ecommercepage.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.tts.ecommercepage.model.Product;
@@ -21,8 +22,35 @@ public class MainController {
     @Autowired
     ProductService productService;
 
+    public void addNew() {
+
+        List<Product> allProducts = productService.findAll();
+
+        if (allProducts.isEmpty()) {
+
+            List<Product> newProducts = new ArrayList<Product>();
+
+            newProducts.add(new Product(3, (float) 500.00, "best phone on the market", "iPhone 11", "Apple", "phone", "images/iphone11.jpg"));
+
+            newProducts.add(new Product(7, (float) 500.00, "best computer on the market", "Macbook Pro", "Apple", "computer", "images/macbookpro.jpg"));
+
+            newProducts.add(new Product(6, (float) 500.00, "best tablet on the market", "iPad Pro", "Apple", "tablet", "images/ipadpro.jpg"));
+
+            newProducts.add(new Product(2, (float) 500.00, "best desktop on the market", "iMac Pro", "Apple", "computer", "images/imac.jpg"));
+
+            for (Product product : newProducts) {
+                productService.save(product);
+            }
+        } else {
+            System.out.println("no products?");
+        }
+
+    }
+
+
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        addNew();
         return "main";
     }
 

@@ -29,9 +29,7 @@ public class Product {
     private String image;
 
 
-    //JPA needs empty constructor
-    public Product() {
-    }
+    
 
     public Product(int quantity, float price, String description, String name, String brand, String category, String image) {
         this.quantity = quantity;
@@ -50,6 +48,9 @@ public class Product {
     //     this.image = image;
     // }
         
+    //JPA needs empty constructor
+    public Product() {
+    }
 
     public Long getId() {
         return id;
